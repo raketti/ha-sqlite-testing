@@ -23,8 +23,15 @@ Test repo for SQLite and Home Assistant
     - metadata_id: 220
     - state: <temperature>
     - last_updated_ts
-      - There's an issue, we have for example 1684522055.67595 in the database
-      - This doesn't match current time, however 1684522055675.95 does
+      - <s>There's an issue, we have for example 1684522055.67595 in the database
+      - This doesn't match current time, however 1684522055675.95 does</s>
+      - So, the time is not in milliseconds, but epoch, so we need something like:
+        ```
+        last_updated_ts = 1684522055.67595
+
+        last_updated_ts = time.strftime("%Y.%m.%d %H:%M:%S")
+        ```
+      - This gives us ```2023.05.22 08:14:29```
 
 - We can get the mean value
   - statistics table
