@@ -25,7 +25,7 @@ Test repo for SQLite and Home Assistant
     - last_updated_ts
       - <s>There's an issue, we have for example 1684522055.67595 in the database
       - This doesn't match current time, however 1684522055675.95 does</s>
-      - So, the time is not in milliseconds, but epoch, so we need something like:
+      - So, the time is not in milliseconds, but seconds since epoch, so we need something like:
         ```
         last_updated_ts = 1684522055.67595
 
