@@ -22,7 +22,7 @@ def get_metadata_id_by_entity_id(conn, entityID):
   :return:
   """
   cur = conn.cursor()
-  cur.execute("SELECT * FROM states_meta WHERE entity_id=?", (entityID,))
+  cur.execute("SELECT * FROM statistics_meta WHERE statistic_id=?", (entityID,)) # Change to statistics_meta table
   
   rows = cur.fetchall()
 
@@ -30,8 +30,8 @@ def get_metadata_id_by_entity_id(conn, entityID):
     metadataID = row[0] # this will link the data from the states table
 
   cur = conn.cursor()  
-  last_row = cur.execute('SELECT * FROM states WHERE metadata_id=?', (metadataID,)).fetchall()[-1]
-  temperature = last_row[3] # temperature value from last row, fourth column
+  last_row = cur.execute('SELECT * FROM statistics WHERE metadata_id=?', (metadataID,)).fetchall()[-1] # Use statistics table, as we get the mean value from there
+  temperature = last_row[4] # temperature mean value from last row, fifth column
   print(temperature)
     
 def main():
