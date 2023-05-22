@@ -5,10 +5,15 @@ Test repo for SQLite and Home Assistant
 ### TODO List:
 
 - [x] Upload test database from:
- - https://www.sqlitetutorial.net/sqlite-sample-database/
-- [ ] Create a simple Python program to read database
+  - https://www.sqlitetutorial.net/sqlite-sample-database/
+- [x] Create a Python program to read database
+- [x] Get latest temperature from Home Assistant SQLite DB
+- [ ] Calculate the average temperature for the last ```n = 7 x 24``` measurements
+  - [ ] We need to find a way to ignore following states:
+    - ``` unavailable ```
+    - ``` unknown ```
 - [ ] Manipulate the data in the Python program
-- [ ] Write new data to the database
+- [ ] Write new data to the database 
 
 
 ### Home Assistant stuff:

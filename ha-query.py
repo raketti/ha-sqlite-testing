@@ -29,11 +29,9 @@ def get_metadata_id_by_entity_id(conn, entityID):
   for row in rows:
     metadataID = row[0] # this will link the data from the states table
 
-  cur = conn.cursor()
-#  cur.execute("SELECT * FROM states WHERE metadata_id=?", (metadataID,))
-  
+  cur = conn.cursor()  
   last_row = cur.execute('SELECT * FROM states WHERE metadata_id=?', (metadataID,)).fetchall()[-1]
-  temperature = last_row[3] # temperature value from last row
+  temperature = last_row[3] # temperature value from last row, fourth column
   print(temperature)
     
 def main():
